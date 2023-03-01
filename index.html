@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hypernatural</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            line-height: 1.6em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 840px;
+
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        section {
+            width: 360px;
+
+            color: #333;
+            text-shadow: 1px 1px 0 #ddd;
+
+            background: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 30px;
+            border: 2px solid #000;
+
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            gap: 12px;
+        }
+
+        #logo {
+            background-image: url("logo.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-indent: -10000px;
+            height: 65px;
+        }
+
+        section h1,
+        section p {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        section p {
+            font-size: 0.8em;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: transparent;
+            letter-spacing: 1px;
+            transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        }
+        a:hover {
+            color: #000;
+            border-bottom-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1 id="logo">Hypernatural</h1>
+        <p>
+            <script>
+                (() => {
+                    const email = 'info' + String.fromCharCode(64) + document.location.hostname.replace('www.', '');
+                    document.write('<a href="mailto:');
+                    document.write(email);
+                    document.write('">');
+                    document.write(email);
+                    document.write('</a>');
+                })();
+            </script>
+        </p>
+    </section>
+
+    <script>
+        (() => {
+            const randomRgba = () => {
+                const R = Math.floor(Math.random() * 256);
+                const G = (R + 96) % 256;
+                const B = (G + 96) % 256;
+                return `rgba(${R}, ${G}, ${B}, 0.3)`;
+            };
+            function setBackgroundGradient() {
+                const gradient = `linear-gradient(45deg, ${Array.from(arguments).join(', ')})`;
+                document.body.style.backgroundImage = gradient;
+            }
+
+            setBackgroundGradient(randomRgba(), randomRgba(), randomRgba(), randomRgba());
+        })();
+    </script>
+</body>
